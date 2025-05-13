@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Categories;
+use App\Models\Products;
 
 class HomepageController extends Controller
 {
@@ -27,9 +28,13 @@ class HomepageController extends Controller
         ]);
     }
 
-    public function product($slug){
+    public function product($slug)
+    {
+        $product = Products::find($slug);
+
         return view('web.product', [
-            'slug' => $slug
+            'slug' => $slug,
+            
         ]);
     }
 

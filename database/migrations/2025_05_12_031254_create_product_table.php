@@ -7,23 +7,26 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Jalankan migrasi.
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
+            $table->decimal('price', 12, 2); // maksimal 999 milyar, 2 angka di belakang koma
+            $table->integer('stock');
             $table->text('description')->nullable();
             $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Batalkan migrasi.
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('products');
     }
 };

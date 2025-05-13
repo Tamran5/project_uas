@@ -1,7 +1,7 @@
 <x-layouts.app :title="__('Categories')">
     <div class="relative mb-6 w-full">
-        <flux:heading size="xl">Product Categories</flux:heading>
-        <flux:subheading size="lg" class="mb-6">Manage data Product Categories</flux:heading>
+        <flux:heading size="xl">Categories</flux:heading>
+        <flux:subheading size="lg" class="mb-6">Manage data Products Categories</flux:subheading>
         <flux:separator variant="subtle" />
     </div>
 
@@ -9,12 +9,12 @@
         <div>
             <form action="{{ route('categories.index') }}" method="get">
                 @csrf
-                <flux:input icon="magnifying-glass" name="q" value="{{ $q }}" placeholder="Search Product Categories" />
+                <flux:input icon="magnifying-glass" name="q" value="{{ $q }}" placeholder="Search Categories" />
             </form>
         </div>
         <div>
             <flux:button icon="plus">
-                <flux:link href="{{ route('categories.create') }}" variant="subtle">Add New Category</flux:link>
+                <flux:link href="{{ route('categories.create') }}" variant="subtle">Add New Categories</flux:link>
             </flux:button>
         </div>
     </div>
@@ -28,16 +28,10 @@
             <thead>
                 <tr>
                     <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        ID
+                        No
                     </th>
                     <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        Image
-                    </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        Name
-                    </th>
-                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        Slug
+                        Name Category
                     </th>
                     <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                         Description
@@ -60,23 +54,7 @@
                         </td>
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <p class="text-gray-900 whitespace-no-wrap">
-                                @if($category->image)
-                                    <img src="{{ Storage::url($category->image) }}" alt="{{ $category->name }}" class="h-10 w-10 object-cover rounded">
-                                @else
-                                    <div class="h-10 w-10 bg-gray-200 flex items-center justify-center rounded">
-                                        <span class="text-gray-500 text-sm">N/A</span>
-                                    </div>
-                                @endif
-                            </p>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p class="text-gray-900 whitespace-no-wrap">
                                 {{ $category->name }}
-                            </p>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p class="text-gray-900 whitespace-no-wrap">
-                                {{ $category->slug }}
                             </p>
                         </td>
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
