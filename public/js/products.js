@@ -21,10 +21,6 @@ function filterByCategory(categoryName) {
     <a href="/product/${encodeURIComponent(product.name)}" class="product-item">
         <div class="product-image">
             <img src="${product.image}" class="card-img-top" alt="${product.name}">
-            <div class="product-overlay">
-                <button class="quick-view">Quick View</button>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
         </div>
         <div class="product-details">
             <h3>${product.name}</h3>

@@ -31,17 +31,9 @@
                     <!-- Description -->
                     <div class="product-description">
                         <h3>Description</h3>
-                        <ul class="description-list">
-                            <li>100% cotton ring spun preshrunk jersey knit.</li>
-                            <li>50% Cotton, 50% Polyester for Heather colors.</li>
-                            <li>90% Cotton, 10% Polyester for Sport Grey color.</li>
-                            <li>180g/m2.</li>
-                            <li>Single needle 2.2 cm collar.</li>
-                            <li>Taped neck and shoulders.</li>
-                            <li>Tubular construction.</li>
-                            <li>Double needle sleeve and bottom hems.</li>
-                            <li>Quarter-turned to eliminate centre crease.</li>
-                        </ul>
+                        <p class="description-text">
+                            {{ $product->description }}
+                        </p>
                     </div>
 
                     <!-- Size Selection -->
@@ -133,7 +125,8 @@
                                     </div>
                                     <a href="{{ route('detailproducts', urlencode($item->name)) }}" class="view-link">Lihat
                                         Produk</a>
-                                    <a href="#" class="view-link">Lihat Produk</a>
+                                    <a href="{{ route('detailproducts', urlencode($item->name)) }}" class="view-link">Lihat
+                                        Produk</a>
                                 </div>
                             </div>
                         @endforeach

@@ -47,7 +47,7 @@
                     </p>
 
                     <div class="hero-actions">
-                        <button class="cta-button primary" onclick="viewCollections()">
+                        <button class="cta-button primary" onclick="window.location.href='{{ url('/products') }}'">
                             <span>View Collections</span>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"
@@ -126,16 +126,12 @@
                                 <p class="product-description">{{ $product->description }}</p>
 
                                 <div class="product-price">
-                                    <span class="current-price">${{ number_format($product->price, 2) }}</span>
-                                    @if($product->original_price)
-                                        <span class="original-price">${{ number_format($product->original_price, 2) }}</span>
-                                    @endif
+                                    <span class="current-price">Rp.{{ number_format($product->price, 2) }}</span>
                                 </div>
-
-                                <button class="add-to-cart-btn"
-                                    onclick="addToCart('{{ $product->name }}', {{ $product->price }})">
-                                    Add to Cart
+                                <button class="add-to-cart-btn" data-url="{{ route('detailproducts', $product->name) }}">
+                                    See Detail
                                 </button>
+
                             </div>
                         </div>
                     @endforeach

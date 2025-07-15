@@ -82,7 +82,9 @@ class HomepageController extends Controller
     }
     public function show($name)
     {
-        $product = Product::whereRaw('LOWER(name) = ?', [strtolower($name)])
+        $decodedName = urldecode($name); // ← decode spasi + menjadi ' '
+
+        $product = Product::whereRaw('LOWER(name) = ?', [strtolower($decodedName)])
             ->with('category')
             ->firstOrFail();
 
@@ -94,6 +96,7 @@ class HomepageController extends Controller
 
         return view('web.detailproducts', compact('product', 'relatedProducts'));
     }
+
 
 
 
