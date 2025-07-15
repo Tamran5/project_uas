@@ -24,7 +24,7 @@
    {{-- Footer --}}
    @include('components.footer')
 
-
+   <script src="{{ asset('js/navbar.js') }}" defer></script>
    @stack('scripts')
 </body>
 

@@ -16,21 +16,21 @@
                             alt="Premium Cotton T-Shirt">
                         <div class="product-info">
                             <h3>7200</h3>
-                            <p>PREMIUM COTTON</p>
+                            <p>T-SHIRTS</p>
                         </div>
                     </div>
 
                     <div class="product-card">
-                        <img src="https://images.pexels.com/photos/8532617/pexels-photo-8532617.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop"
+                        <img src="{{ asset('images/hoodies.jpg') }}"
                             alt="Fashion Cotton Raglan">
                         <div class="product-info">
                             <h3>7260</h3>
-                            <p>FASHION COTTON<br>RAGLAN</p>
+                            <p>HOODIES</p>
                         </div>
                     </div>
 
                     <div class="product-card">
-                        <img src="https://images.pexels.com/photos/8532618/pexels-photo-8532618.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop"
+                        <img src="{{ asset('images/long.jpg') }}"
                             alt="Long Sleeve">
                         <div class="product-info">
                             <h3>7280</h3>
@@ -39,11 +39,11 @@
                     </div>
 
                     <div class="product-card">
-                        <img src="https://images.pexels.com/photos/8532619/pexels-photo-8532619.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&fit=crop"
+                        <img src="{{ asset('images/polo.jpg') }}"
                             alt="Soft Tee">
                         <div class="product-info">
                             <h3>3600</h3>
-                            <p>SOFT TEE</p>
+                            <p>POLO SHIRTS</p>
                         </div>
                     </div>
                 </div>

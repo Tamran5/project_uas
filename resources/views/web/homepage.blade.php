@@ -9,8 +9,12 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-background">
-            <img src="https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                alt="Premium Custom Printing Services" class="hero-bg-image" id="heroBgImage">
+            <img src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                class="hero-bg-image" alt="Slide 1">
+            <img src="https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg" class="hero-bg-image"
+                alt="Slide 2">
+            <img src="https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                class="hero-bg-image" alt="Slide 3">
             <div class="hero-overlay"></div>
         </div>
 
@@ -37,18 +41,18 @@
                     </div>
 
                     <h1 class="hero-title">
-                        <span class="title-line">Get Ready</span>
-                        <span class="title-line hero-subtitle">For New Collection</span>
+                        <span class="title-line">Sablon Custom Premium</span>
+                        <span class="title-line hero-subtitle">Koleksi Baru yang Lebih Keren!</span>
                     </h1>
 
                     <p class="hero-description">
-                        Discover our latest custom printing solutions with premium quality materials and cutting-edge
-                        technology for all your creative needs.
+                        Temukan berbagai solusi cetak custom terbaru kami dengan bahan berkualitas tinggi dan teknologi
+                        tercanggih — siap wujudkan semua ide kreatifmu!
                     </p>
 
                     <div class="hero-actions">
                         <button class="cta-button primary" onclick="window.location.href='{{ url('/products') }}'">
-                            <span>View Collections</span>
+                            <span>Lihat Produk</span>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round" />
@@ -59,17 +63,18 @@
                     <div class="hero-stats">
                         <div class="stat-item">
                             <span class="stat-number">50K+</span>
-                            <span class="stat-label">Happy Customers</span>
+                            <span class="stat-label">Pelanggan Puas</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number">10+</span>
-                            <span class="stat-label">Years Experience</span>
+                            <span class="stat-label">Tahun Pengalaman</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number">99%</span>
-                            <span class="stat-label">Quality Guarantee</span>
+                            <span class="stat-label">Jaminan Kualitas</span>
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -85,8 +90,8 @@
     <section class="categories-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Shop by Category</h2>
-                <p class="section-subtitle">Explore our wide range of custom printing services</p>
+                <h2 class="section-title">Jelajahi Kategori Produk Sablon</h2>
+                <p class="section-subtitle">Jelajahi berbagai kategori produk sablon kustom kami</p>
             </div>
 
             <div class="categories-grid">
@@ -110,8 +115,8 @@
     <section class="featured-products">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Shop by Products</h2>
-                <p class="section-subtitle">Explore our wide range of custom printing services</p>
+                <h2 class="section-title">Jelajahi Produk Sablon</h2>
+                <p class="section-subtitle">Jelajahi berbagai produk sablon kustom kami</p>
             </div>
             <div class="products-grid">
                 @foreach($products as $product)
@@ -143,8 +148,8 @@
     <section class="services-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Our Services</h2>
-                <p class="section-subtitle">Professional printing solutions for all your needs</p>
+                <h2 class="section-title">Layanan Kami</h2>
+                <p class="section-subtitle">Solusi pencetakan profesional untuk semua kebutuhan Anda.</p>
             </div>
 
             <div class="services-grid">
@@ -159,13 +164,13 @@
                                 stroke-linejoin="round" />
                         </svg>
                     </div>
-                    <h3 class="service-title">Custom Design</h3>
-                    <p class="service-description">Professional graphic design services to bring your ideas to life with
-                        creative and unique designs.</p>
+                    <h3 class="service-title">Desain Kustom</h3>
+                    <p class="service-description">Layanan desain grafis profesional untuk mewujudkan ide Anda menjadi
+                        desain yang unik, menarik, dan sesuai kebutuhan.</p>
                     <ul class="service-features">
-                        <li>Logo Design</li>
-                        <li>Brand Identity</li>
-                        <li>Custom Graphics</li>
+                        <li>Pembuatan Logo Profesional</li>
+                        <li>Pembangunan Identitas Merek</li>
+                        <li>Ilustrasi dan Grafis Sesuai Permintaan</li>
                     </ul>
                 </div>
 
@@ -179,12 +184,12 @@
                         </svg>
                     </div>
                     <h3 class="service-title">Digital Printing</h3>
-                    <p class="service-description">High-quality digital printing with vibrant colors and sharp details
-                        for all your printing needs.</p>
+                    <p class="service-description">Layanan cetak digital berkualitas tinggi dengan warna tajam dan
+                        detail presisi untuk memenuhi semua kebutuhan cetak Anda.</p>
                     <ul class="service-features">
-                        <li>High Resolution</li>
-                        <li>Fast Turnaround</li>
-                        <li>Color Accuracy</li>
+                        <li>Kualitas Resolusi Tinggi</li>
+                        <li>Proses Cepat dan Tepat Waktu</li>
+                        <li>Akurasi Warna yang Konsisten</li>
                     </ul>
                 </div>
 
@@ -196,13 +201,13 @@
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </div>
-                    <h3 class="service-title">Quality Guarantee</h3>
-                    <p class="service-description">100% satisfaction guarantee with premium materials and professional
-                        quality control standards.</p>
+                    <h3 class="service-title">Sablon DTG (Direct to Garment)</h3>
+                    <p class="service-description">Cetak langsung di atas kain menggunakan printer khusus, seperti
+                        mencetak di kertas.</p>
                     <ul class="service-features">
-                        <li>Premium Materials</li>
-                        <li>Quality Control</li>
-                        <li>Money Back Guarantee</li>
+                        <li>Cocok untuk desain full color</li>
+                        <li>Ideal untuk pemesanan satuan</li>
+                        <li>Hasil lembut</li>
                     </ul>
                 </div>
             </div>
@@ -213,8 +218,8 @@
     <section class="testimonials-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">What Our Customers Say</h2>
-                <p class="section-subtitle">Real feedback from satisfied customers</p>
+                <h2 class="section-title">Apa Kata Pelanggan Kami</h2>
+                <p class="section-subtitle">Umpan balik nyata dari pelanggan yang puas</p>
             </div>
 
             <div class="testimonials-grid">

@@ -7,14 +7,6 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    line-height: 1.6;
-    color: #000000;
-    overflow-x: hidden;
-    background: #ffffff;
-}
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -43,9 +35,8 @@ body {
 }
 
 .logo {
-    padding-left: 5rem; /* Tambahan */
+    padding-left: 5rem;
 }
-
 
 .logo a {
     display: flex;
@@ -174,12 +165,16 @@ body {
     align-items: center;
     gap: 2rem;
 }
+
+/* Mobile Menu Toggle */
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
     gap: 4px;
     cursor: pointer;
     padding: 0.5rem;
+    z-index: 1001;
+    position: relative;
 }
 
 .mobile-menu-toggle span {
@@ -188,6 +183,141 @@ body {
     background: #000000;
     border-radius: 2px;
     transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Hamburger Animation */
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 400px;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    overflow-y: auto;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu-content {
+    padding: 6rem 2rem 2rem;
+}
+
+.mobile-nav-link {
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.mobile-nav-link:hover {
+    color: #666666;
+    padding-left: 1rem;
+}
+
+/* Mobile Dropdown */
+.mobile-dropdown {
+    position: relative;
+}
+
+.dropdown-trigger::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-trigger.active::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.mobile-dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: #f8f8f8;
+    border-radius: 10px;
+    margin-top: 0.5rem;
+}
+
+.mobile-dropdown-content.active {
+    max-height: 500px;
+}
+
+.mobile-dropdown-section {
+    padding: 1rem;
+}
+
+.mobile-dropdown-section h4 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mobile-dropdown-link {
+    display: block;
+    color: #666666;
+    text-decoration: none;
+    padding: 0.3rem 0;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+}
+
+.mobile-dropdown-link:hover {
+    color: #000000;
+    padding-left: 1rem;
+}
+
+/* Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* Animations */
@@ -196,10 +326,18 @@ body {
         opacity: 0;
         transform: translateY(50px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
     }
 }
 
@@ -213,17 +351,17 @@ body {
         display: flex;
     }
 
-    .cta-button {
+    .logo {
+        padding-left: 0;
+    }
+
+    .nav {
+        padding: 1rem;
+    }
+
+    .mobile-menu {
         width: 100%;
-        justify-content: center;
-    }
-
-    .nav-prev {
-        left: 1rem;
-    }
-
-    .nav-next {
-        right: 1rem;
+        max-width: none;
     }
 }
 
@@ -232,8 +370,16 @@ body {
         padding: 0 1rem;
     }
 
-    .nav-arrow {
-        width: 40px;
-        height: 40px;
+    .mobile-menu-content {
+        padding: 5rem 1.5rem 2rem;
     }
+
+    .mobile-nav-link {
+        font-size: 1rem;
+    }
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.mobile-menu-open {
+    overflow: hidden;
 }

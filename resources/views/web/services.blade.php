@@ -11,9 +11,10 @@
         <!-- Services Hero Section -->
         <section class="services-hero">
             <div class="container">
-                <h1 class="services-title">Our Services</h1>
-                <p class="services-subtitle">Professional printing solutions with exceptional quality and attention to
-                    detail</p>
+                <h1 class="services-title">Layanan Kami</h1>
+                <p class="services-subtitle">Solusi percetakan profesional dengan kualitas luar biasa dan perhatian
+                    terhadap setiap detail.
+                </p>
             </div>
         </section>
 
@@ -26,11 +27,12 @@
                         <div class="service-content">
                             <h3 class="service-name">Screen Printing</h3>
                             <p class="service-description">
-                                Our screen printing service offers vibrant, long-lasting prints perfect for bulk orders.
-                                Using high-quality inks and precision techniques, we ensure consistent color
-                                reproduction
-                                and durability across all garments. Ideal for corporate uniforms, event merchandise,
-                                and promotional items with bold, eye-catching designs.
+                                Layanan sablon kami menawarkan hasil cetak yang cerah dan tahan lama, sempurna untuk
+                                pesanan dalam jumlah besar. Dengan menggunakan tinta berkualitas tinggi dan teknik
+                                presisi, kami memastikan reproduksi warna yang konsisten dan daya tahan pada setiap
+                                pakaian. Cocok untuk seragam perusahaan, merchandise acara, dan barang promosi dengan
+                                desain yang berani dan menarik perhatian.
+
                             </p>
                         </div>
                     </div>
@@ -40,10 +42,10 @@
                         <div class="service-content-main">
                             <h2 class="main-service-title">DIGITAL<br>PRINTING</h2>
                             <p class="main-service-description">
-                                State-of-the-art digital printing technology for photorealistic designs and complex
-                                artwork.
-                                Perfect for small to medium runs with unlimited color options and intricate detail
-                                reproduction.
+                                Teknologi cetak digital canggih untuk desain fotorealistik dan karya seni yang kompleks.
+                                Sangat cocok untuk cetakan dalam jumlah kecil hingga menengah dengan pilihan warna tak
+                                terbatas dan reproduksi detail yang rumit.
+
                             </p>
                         </div>
                     </div>
@@ -51,7 +53,7 @@
                     <!-- Printing Techniques -->
                     <div class="service-card techniques-card">
                         <div class="techniques-content">
-                            <h3 class="techniques-title">Available Techniques</h3>
+                            <h3 class="techniques-title">Teknik yang Tersedia</h3>
                             <div class="technique-list">
                                 <div class="technique-item">
                                     <span class="technique-name">RUBBER</span>
@@ -90,11 +92,12 @@
                         <div class="service-content">
                             <h3 class="service-name">Embroidery</h3>
                             <p class="service-description">
-                                Premium embroidery services using advanced computerized machines for precise stitching.
-                                Perfect for corporate logos, monograms, and detailed designs that require a
-                                professional,
-                                elegant finish. Our embroidery adds texture and dimension while maintaining durability
-                                through countless washes.
+                                Layanan bordir premium menggunakan mesin komputerisasi canggih untuk jahitan yang
+                                presisi.
+                                Sangat cocok untuk logo perusahaan, monogram, dan desain detail yang memerlukan hasil
+                                akhir profesional dan elegan.
+                                Bordir kami menambahkan tekstur dan dimensi sekaligus menjaga daya tahan meski dicuci
+                                berkali-kali.
                             </p>
                         </div>
                     </div>
@@ -104,11 +107,11 @@
                         <div class="service-content">
                             <h3 class="service-name">Heat Transfer</h3>
                             <p class="service-description">
-                                Quick and efficient heat transfer printing ideal for personalized items and small
-                                orders.
-                                Using high-quality vinyl and transfer materials, we create crisp, clean designs with
-                                excellent adhesion. Perfect for names, numbers, and simple graphics with fast turnaround
-                                times.
+                                Cetak transfer panas yang cepat dan efisien, ideal untuk barang personalisasi dan
+                                pesanan kecil.
+                                Dengan menggunakan vinyl dan bahan transfer berkualitas tinggi, kami menciptakan desain
+                                yang tajam dan bersih dengan daya rekat yang sangat baik.
+                                Sangat cocok untuk nama, nomor, dan grafik sederhana dengan waktu pengerjaan yang cepat.
                             </p>
                         </div>
                     </div>
@@ -118,10 +121,11 @@
                         <div class="service-content">
                             <h3 class="service-name">Custom Design</h3>
                             <p class="service-description">
-                                Professional design services to bring your creative vision to life. Our experienced
-                                designers work closely with you to create unique artwork, logos, and graphics optimized
-                                for printing. From concept to completion, we ensure your design stands out and
-                                represents your brand perfectly.
+                                Layanan desain profesional untuk mewujudkan visi kreatif Anda. Desainer berpengalaman
+                                kami bekerja sama dengan Anda untuk menciptakan karya seni, logo, dan grafik unik yang
+                                dioptimalkan untuk cetak.
+                                Mulai dari konsep hingga selesai, kami memastikan desain Anda menonjol dan mewakili
+                                merek Anda dengan sempurna.
                             </p>
                         </div>
                     </div>
@@ -132,31 +136,33 @@
         <!-- Service Process -->
         <section class="process-section">
             <div class="container">
-                <h2 class="process-title">Our Process</h2>
+                <h2 class="process-title">Proses Kami</h2>
                 <div class="process-grid">
                     <div class="process-step">
                         <div class="step-number">01</div>
-                        <h3>Consultation</h3>
-                        <p>We discuss your requirements, timeline, and design preferences to understand your vision
-                            completely.</p>
+                        <h3>Konsultasi</h3>
+                        <p>Kami membahas kebutuhan, jadwal, dan preferensi desain Anda untuk memahami visi Anda secara
+                            menyeluruh..</p>
                     </div>
                     <div class="process-step">
                         <div class="step-number">02</div>
-                        <h3>Design & Approval</h3>
-                        <p>Our team creates or refines your design, providing samples and mockups for your approval
-                            before production.</p>
+                        <h3>Desain & Persetujuan</h3>
+                        <p>Tim kami membuat atau menyempurnakan desain Anda, serta menyediakan sampel dan mockup untuk
+                            persetujuan Anda sebelum produksi.</p>
                     </div>
                     <div class="process-step">
                         <div class="step-number">03</div>
-                        <h3>Production</h3>
-                        <p>Using state-of-the-art equipment and premium materials, we carefully produce your order with
-                            attention to detail.</p>
+                        <h3>Produksi</h3>
+                        <p>Dengan menggunakan peralatan canggih dan bahan premium, kami memproduksi pesanan Anda dengan
+                            perhatian penuh terhadap setiap detail.
+                        </p>
                     </div>
                     <div class="process-step">
                         <div class="step-number">04</div>
-                        <h3>Quality Check</h3>
-                        <p>Every item undergoes thorough quality inspection to ensure it meets our high standards before
-                            delivery.</p>
+                        <h3>Pemeriksaan Kualitas</h3>
+                        <p>Setiap produk menjalani pemeriksaan kualitas yang menyeluruh untuk memastikan memenuhi
+                            standar tinggi kami sebelum pengiriman.
+                        </p>
                     </div>
                 </div>
             </div>

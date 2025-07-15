@@ -48,7 +48,7 @@
                     </div>
                     <div class="store-text">
                         <h2 class="store-title">
-                            SE CAPUNG DI SELURUH INDONESIA
+                            SiberStore Menjangkau Seluruh Indonesia
                         </h2>
                         <p class="store-description">
                             Dengan jaringan distribusi yang luas dan sistem logistik yang handal,
@@ -68,22 +68,22 @@
         <!-- Features Section -->
         <section class="features-section">
             <div class="container">
-                <h2 class="section-title">Why Choose SiberStore?</h2>
+                <h2 class="section-title">Kenapa Pilih SiberStore?</h2>
                 <div class="features-grid">
                     <div class="feature-card">
                         <div class="feature-icon">⚡</div>
-                        <h3>Fast Production</h3>
-                        <p>Express printing service with 24-hour turnaround time</p>
+                        <h3>Produksi Cepat</h3>
+                        <p>Layanan cetak ekspres dengan waktu penyelesaian 24 jam</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🎨</div>
-                        <h3>Custom Design</h3>
-                        <p>Unlimited design possibilities with professional quality</p>
+                        <h3>Desain Kustom</h3>
+                        <p>Desain dibuat khusus mengikuti keinginan dan kebutuhan pelanggan.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">💎</div>
-                        <h3>Premium Quality</h3>
-                        <p>High-quality materials and printing technology</p>
+                        <h3>Kualitas Premium</h3>
+                        <p>HMenggunakan bahan berkualitas tinggi dan teknologi cetak terkini</p>
                     </div>
                 </div>
             </div>
