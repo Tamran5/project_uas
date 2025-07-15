@@ -119,7 +119,7 @@
                 <p class="section-subtitle">Jelajahi berbagai produk sablon kustom kami</p>
             </div>
             <div class="products-grid">
-                @foreach($products as $product)
+                @foreach($products->take(6) as $product)
                     <div class="product-card" data-product="{{ $product->slug }}">
                         <div class="product-image">
                             <img src="{{ asset('storage/' . $product->image_url) }}" alt="{{ $product->name }}" width="300">
