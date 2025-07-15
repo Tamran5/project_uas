@@ -1,35 +1,73 @@
-<div>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">E-Commerce</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/products">Products</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Categories
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/category/pria">Pria</a></li>
-                            <li><a class="dropdown-item" href="/category/wanita">Wanita</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="/category/anak-anak">Anak-Anak</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+<!-- Header -->
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/">
+                <span class="logo-icon">S</span>
+                <span class="logo-text">SiberStore</span>
+            </a>
+        </div>
+
+        <ul class="nav-menu">
+            <li class="nav-item dropdown">
+                <a href="{{ url('/products') }}" class="nav-link">Products</a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-section">
+                        <h4>T-Shirts</h4>
+                        <a href="#" class="dropdown-link">Cotton T-Shirts</a>
+                        <a href="#" class="dropdown-link">Polo Shirts</a>
+                        <a href="#" class="dropdown-link">Long Sleeve</a>
+                        <a href="#" class="dropdown-link">Tank Tops</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <h4>Hoodies & Jackets</h4>
+                        <a href="#" class="dropdown-link">Hoodies</a>
+                        <a href="#" class="dropdown-link">Zip Hoodies</a>
+                        <a href="#" class="dropdown-link">Jackets</a>
+                        <a href="#" class="dropdown-link">Varsity Jackets</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <h4>Accessories</h4>
+                        <a href="#" class="dropdown-link">Caps & Hats</a>
+                        <a href="#" class="dropdown-link">Bags</a>
+                        <a href="#" class="dropdown-link">Mugs</a>
+                        <a href="#" class="dropdown-link">Stickers</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link">Services</a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-section">
+                        <h4>Printing Methods</h4>
+                        <a href="#" class="dropdown-link">Screen Printing</a>
+                        <a href="#" class="dropdown-link">Digital Printing</a>
+                        <a href="#" class="dropdown-link">Heat Transfer</a>
+                        <a href="#" class="dropdown-link">Embroidery</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <h4>Design Services</h4>
+                        <a href="#" class="dropdown-link">Custom Design</a>
+                        <a href="#" class="dropdown-link">Logo Creation</a>
+                        <a href="#" class="dropdown-link">Design Consultation</a>
+                        <a href="#" class="dropdown-link">Artwork Review</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Contact</a>
+            </li>
+        </ul>
+
+        <div class="nav-actions">
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
- </div>
+</header>

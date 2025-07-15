@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use Livewire\Volt\Volt;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomepageController;
@@ -9,21 +10,29 @@ use App\Http\Controllers\ProductController;
 
 
 
+Route::post('products/sync/{id}', [ProductController::class, 'sync'])->name('products.sync');
+Route::post('category/sync/{id}', [ProductCategoryController::class, 'sync'])->name('category.sync');
+
 //kode baru diubah menjadi seperti ini
 Route::get('/', [HomepageController::class, 'index'])->name('home');
 Route::get('products', [HomepageController::class, 'products']);
-Route::get('product/{slug}', [HomepageController::class, 'product']);
-Route::get('categories',[HomepageController::class, 'categories']);
+Route::get('detail', [HomepageController::class, 'detail']);
+Route::get('categories', [HomepageController::class, 'categories']);
 Route::get('category/{slug}', [HomepageController::class, 'category']);
 Route::get('cart', [HomepageController::class, 'cart']);
 Route::get('checkout', [HomepageController::class, 'checkout']);
+Route::get('/products/filter', [HomepageController::class, 'filterByCategory']);
+Route::get('/product/{name}', [HomepageController::class, 'show'])->name('detailproducts');
 
 
-Route::group(['prefix'=>'dashboard'], function(){
-    Route::get('/',[DashboardController::class,'index'])->name('dashboard');
 
-    Route::resource('categories',ProductCategoryController::class);
-    Route::resource('products',ProductController::class);
+
+Route::group(['prefix' => 'dashboard'], function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::resource('categories', ProductCategoryController::class);
+    Route::resource('products', ProductController::class);
+    Route::resource('orders', OrderController::class);
     // Route::get('products',[DashboardController::class,'products'])->name('products');
 
 })->middleware(['auth', 'verified']);
@@ -37,4 +46,4 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

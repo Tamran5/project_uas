@@ -2,33 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
-use App\Models\Products;
 use App\Models\Categories;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
     /**
-     * Tampilkan daftar produk.
+     * Display a listing of the resource.
      */
     public function index(Request $request)
     {
-        $products = Products::with('category:id,name')  // Ambil hanya id dan name kategori
-            ->when($request->filled('q'), function ($query) use ($request) {
-                $query->where('name', 'like', '%' . $request->q . '%')
-                    ->orWhere('description', 'like', '%' . $request->q . '%');
-            })
-            ->paginate(10);
+        // Mendapatkan query pencarian
+        $q = $request->get('q', ''); // Menangani parameter pencarian dengan default kosong
 
-        return view('dashboard.products.index', [
-            'products' => $products,
-            'q' => $request->q
-        ]);
+        // Mencari produk berdasarkan nama dan deskripsi jika ada pencarian
+        $products = Product::when($q, function ($query, $q) {
+            return $query->where('name', 'like', "%{$q}%")
+                ->orWhere('description', 'like', "%{$q}%");
+        })->paginate(10); // Menampilkan hasil produk dengan pagination
+
+        return view('dashboard.products.index', compact('products', 'q'));
     }
 
-
     /**
-     * Tampilkan form tambah produk.
+     * Show the form for creating a new resource.
      */
     public function create()
     {
@@ -37,90 +36,170 @@ class ProductController extends Controller
     }
 
     /**
-     * Simpan produk baru.
+     * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
+        // Validasi input produk
         $validator = \Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'category' => 'required|exists:categories,id',
+            'slug' => 'required|string|max:255|unique:products,slug',
+            'sku' => 'required|string|unique:products,sku',
             'price' => 'required|numeric|min:0',
             'stock' => 'required|integer|min:0',
+            'product_category_id' => 'nullable|exists:categories,id',
             'description' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',  // Validasi gambar upload
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withInput()->with([
-                'errors' => $validator->errors(),
-                'errorMessage' => 'Validasi gagal. Harap lengkapi data dengan benar.'
-            ]);
+            return redirect()->back()->with(
+                [
+                    'errors' => $validator->errors(),
+                    'errorMessage' => 'Validasi Error, Silahkan lengkapi data terlebih dahulu'
+                ]
+            );
         }
 
-        Products::create([
-            'name' => $request->name,
-            'category_id' => $request->category,
-            'price' => $request->price,
-            'stock' => $request->stock,
-            'description' => $request->description,
-        ]);
+        $product = new Product;
+        $product->name = $request->name;
+        $product->slug = $request->slug;
+        $product->description = $request->description;
+        $product->sku = $request->sku;
+        $product->price = $request->price;
+        $product->stock = $request->stock;
+        $product->product_category_id = $request->product_category_id;
+        $product->is_active = $request->has('is_active') ? $request->is_active : true;
 
-        return redirect()->route('products.index')->with('successMessage', 'Produk berhasil ditambahkan.');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $imagePath = $image->storeAs('uploads/products', $imageName, 'public');
+            $product->image_url = $imagePath;
+        }
+
+        $product->save();
+
+        return redirect()->route('products.index')->with(
+            [
+                'success' => 'Produk berhasil ditambahkan.'
+            ]
+        );
     }
 
     /**
-     * Tampilkan form edit produk.
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
-        $product = Products::findOrFail($id);
+        $product = Product::findOrFail($id);
         $categories = Categories::all();
 
-        return view('dashboard.products.edit', [
-            'product' => $product,
-            'categories' => $categories
-        ]);
+        return view('dashboard.products.edit', compact('product', 'categories'));
     }
 
     /**
-     * Update produk.
+     * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
+        $product = Product::findOrFail($id);
+
         $validator = \Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'category' => 'required|exists:categories,id',
+            'slug' => 'required|string|max:255|unique:products,slug,' . $product->id,
+            'description' => 'nullable|string',
+            'sku' => 'required|string|unique:products,sku,' . $product->id,
             'price' => 'required|numeric|min:0',
             'stock' => 'required|integer|min:0',
-            'description' => 'nullable|string',
+            'product_category_id' => 'nullable|exists:categories,id',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'is_active' => 'boolean',
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withInput()->with([
-                'errors' => $validator->errors(),
-                'errorMessage' => 'Validasi gagal. Harap lengkapi data dengan benar.'
-            ]);
+            return redirect()->back()->with(
+                [
+                    'errors' => $validator->errors(),
+                    'errorMessage' => 'Validasi Error, Silahkan lengkapi data terlebih dahulu'
+                ]
+            );
         }
 
-        $product = Products::findOrFail($id);
-        $product->update([
-            'name' => $request->name,
-            'category_id' => $request->category,
-            'price' => $request->price,
-            'stock' => $request->stock,
-            'description' => $request->description,
-        ]);
+        $product->name = $request->name;
+        $product->slug = $request->slug;
+        $product->price = $request->price;
+        $product->stock = $request->stock;
+        $product->description = $request->description;
+        $product->sku = $request->sku;
+        $product->product_category_id = $request->product_category_id;
+        $product->is_active = $request->has('is_active') ? $request->is_active : true;
 
-        return redirect()->route('products.index')->with('successMessage', 'Produk berhasil diperbarui.');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $imagePath = $image->storeAs('uploads/products', $imageName, 'public');
+            $product->image_url = $imagePath;
+        }
+
+        $product->save();
+
+        return redirect()->route('products.index')
+            ->with(
+                [
+                    'successMessage' => 'Data Berhasil Diupdate'
+                ]
+            );
     }
 
     /**
-     * Hapus produk.
+     * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        $product = Products::findOrFail($id);
+        $product = Product::findOrFail($id);
+
         $product->delete();
 
-        return redirect()->back()->with('successMessage', 'Produk berhasil dihapus.');
+        return redirect()->route('products.index')
+            ->with('successMessage', 'Data Berhasil Dihapus');
+    }
+
+
+
+    public function sync($id, Request $request)
+    {
+        $product = Product::findOrFail($id);
+
+        $response = Http::post('https://api.phb-umkm.my.id/api/product/sync', [
+            'client_id' => env('CLIENT_ID'),
+            'client_secret' => env('CLIENT_SECRET'),
+            'seller_product_id' => (string) $product->id,
+            'name' => $product->name,
+            'description' => $product->description,
+            'price' => $product->price,
+            'stock' => $product->stock,
+            'sku' => $product->sku,
+            'image_url' => asset('storage/' . $product->image_url),
+            'weight' => $product->weight,
+            'is_active' => $request->is_active == 1 ? false : true,
+            'category_id' => (string) $product->category->hub_category_id,
+        ]);
+
+        if ($response->successful() && isset($response['product_id'])) {
+            $product->hub_product_id = $request->is_active == 1 ? null : $response['product_id'];
+            $product->save();
+        }
+
+        session()->flash('successMessage', 'Product Synced Successfully');
+        return redirect()->back();
     }
 }

@@ -11,6 +11,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id(); // auto increment, BIGINT UNSIGNED
             $table->foreignId('customer_id')->constrained('customers'); // FOREIGN KEY ke customers
+            $table->string('tracking_number')->nullable();
             $table->date('order_date'); // DATE
             $table->decimal('total_amount', 10, 2)->default(0.00); // DECIMAL(10, 2)
             $table->enum('status', ['pending', 'processing', 'completed', 'cancelled'])->default('pending'); // ENUM
