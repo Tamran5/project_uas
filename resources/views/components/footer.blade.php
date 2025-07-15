@@ -46,9 +46,8 @@
             <div class="footer-section">
                 <h3 class="footer-title">Quick Links</h3>
                 <ul class="footer-links">
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#categories">Categories</a></li>
-                    <li><a href="#products">Products</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="{{ url('/products') }}">Products</a></li>
                     <li><a href="#services">Services</a></li>
                 </ul>
             </div>
@@ -56,10 +55,9 @@
             <div class="footer-section">
                 <h3 class="footer-title">Categories</h3>
                 <ul class="footer-links">
-                    <li><a href="#">T-Shirts</a></li>
-                    <li><a href="#">Hoodies</a></li>
-                    <li><a href="#">Mugs</a></li>
-                    <li><a href="#">Stickers</a></li>
+                    <li><a href="/products?category=T-Shirts" class="dropdown-link">T-Shirts</a></li>
+                    <li><a href="/products?category=Polo Shirts" class="dropdown-link">Polo Shirts</a></li>
+                    <li><a href="/products?category=Long Sleeve" class="dropdown-link">Long Sleeve</a></li>
                 </ul>
             </div>
 

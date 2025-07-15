@@ -61,23 +61,22 @@
         </section>
 
         <!-- Filter Section -->
-        <section class="filter-section">
-            <div class="filter-container">
-                <div class="filter-dropdown">
-                    <select id="productFilter" onchange="filterByCategory(this.value)">
-                        <option value="">All Products</option>
-                        @foreach($categories as $category)
-                            <option value="{{ $category['name'] }}" {{ (request('category') && strtolower(request('category')) == strtolower($category['name'])) ? 'selected' : '' }}>
-                                {{ $category['name'] }}
-                            </option>
+<section class="filter-section">
+    <div class="filter-container">
+        <div class="filter-dropdown">
+            <select id="productFilter" onchange="filterByCategory(this.value)">
+                <option value="">All Products</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category['name'] }}" 
+                        {{ request('category') && strtolower(request('category')) === strtolower($category['name']) ? 'selected' : '' }}>
+                        {{ $category['name'] }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+</section>
 
-                        @endforeach
-                    </select>
-
-
-                </div>
-            </div>
-        </section>
 
 
         <!-- Product Grid -->

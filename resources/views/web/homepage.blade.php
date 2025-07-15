@@ -54,9 +54,6 @@
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </button>
-                        <button class="cta-button secondary" onclick="openCustomDesign()">
-                            <span>Custom Design</span>
-                        </button>
                     </div>
 
                     <div class="hero-stats">
@@ -93,7 +90,7 @@
             </div>
 
             <div class="categories-grid">
-                @foreach($categories as $category)
+                @foreach($categories->take(3) as $category)
                     <div class="category-card" onclick="browseCategory('{{ $category['name'] }}')">
                         <div class="category-image">
                             <img src="{{ asset('storage/' . $category['image']) }}" alt="{{ $category['name'] }}">
@@ -113,31 +110,33 @@
     <section class="featured-products">
         <div class="container">
             <div class="section-header">
-                <div class="products-grid">
-                    @foreach($products as $product)
-                        <div class="product-card" data-product="{{ $product->slug }}">
-                            <div class="product-image">
-                                <img src="{{ asset('storage/' . $product->image_url) }}" alt="{{ $product->name }}"
-                                    width="300">
-                            </div>
-
-                            <div class="product-content">
-                                <h3 class="product-title">{{ $product->name }}</h3>
-                                <p class="product-description">{{ $product->description }}</p>
-
-                                <div class="product-price">
-                                    <span class="current-price">Rp.{{ number_format($product->price, 2) }}</span>
-                                </div>
-                                <button class="add-to-cart-btn" data-url="{{ route('detailproducts', $product->name) }}">
-                                    See Detail
-                                </button>
-
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-
+                <h2 class="section-title">Shop by Products</h2>
+                <p class="section-subtitle">Explore our wide range of custom printing services</p>
             </div>
+            <div class="products-grid">
+                @foreach($products as $product)
+                    <div class="product-card" data-product="{{ $product->slug }}">
+                        <div class="product-image">
+                            <img src="{{ asset('storage/' . $product->image_url) }}" alt="{{ $product->name }}" width="300">
+                        </div>
+
+                        <div class="product-content">
+                            <h3 class="product-title">{{ $product->name }}</h3>
+                            <p class="product-description">{{ $product->description }}</p>
+
+                            <div class="product-price">
+                                <span class="current-price">Rp.{{ number_format($product->price, 2) }}</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-url="{{ route('detailproducts', $product->name) }}">
+                                See Detail
+                            </button>
+
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+        </div>
     </section>
 
     <!-- Services Section -->

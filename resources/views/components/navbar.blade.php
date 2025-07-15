@@ -9,57 +9,29 @@
         </div>
 
         <ul class="nav-menu">
+            <a href="{{ url('/') }}" class="nav-link">Beranda</a>
             <li class="nav-item dropdown">
                 <a href="{{ url('/products') }}" class="nav-link">Products</a>
                 <div class="dropdown-menu">
                     <div class="dropdown-section">
                         <h4>T-Shirts</h4>
-                        <a href="#" class="dropdown-link">Cotton T-Shirts</a>
-                        <a href="#" class="dropdown-link">Polo Shirts</a>
-                        <a href="#" class="dropdown-link">Long Sleeve</a>
-                        <a href="#" class="dropdown-link">Tank Tops</a>
+                        <a href="/products?category=T-Shirts" class="dropdown-link">T-Shirts</a>
+                        <a href="/products?category=Polo Shirts" class="dropdown-link">Polo Shirts</a>
+                        <a href="/products?category=Long Sleeve" class="dropdown-link">Long Sleeve</a>
+                        <a href="/products?category=Tank Tops" class="dropdown-link">Tank Tops</a>
                     </div>
                     <div class="dropdown-section">
                         <h4>Hoodies & Jackets</h4>
-                        <a href="#" class="dropdown-link">Hoodies</a>
-                        <a href="#" class="dropdown-link">Zip Hoodies</a>
-                        <a href="#" class="dropdown-link">Jackets</a>
-                        <a href="#" class="dropdown-link">Varsity Jackets</a>
-                    </div>
-                    <div class="dropdown-section">
-                        <h4>Accessories</h4>
-                        <a href="#" class="dropdown-link">Caps & Hats</a>
-                        <a href="#" class="dropdown-link">Bags</a>
-                        <a href="#" class="dropdown-link">Mugs</a>
-                        <a href="#" class="dropdown-link">Stickers</a>
+                        <a href="/products?category=" class="dropdown-link">Hoodies</a>
+                        <a href="/products?category=Zip Hoodies" class="dropdown-link">Zip Hoodies</a>
+                        <a href="/products?category=Jackets" class="dropdown-link">Jackets</a>
+                        <a href="/products?category=Varsity Jackets" class="dropdown-link">Varsity Jackets</a>
                     </div>
                 </div>
             </li>
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link">Services</a>
-                <div class="dropdown-menu">
-                    <div class="dropdown-section">
-                        <h4>Printing Methods</h4>
-                        <a href="#" class="dropdown-link">Screen Printing</a>
-                        <a href="#" class="dropdown-link">Digital Printing</a>
-                        <a href="#" class="dropdown-link">Heat Transfer</a>
-                        <a href="#" class="dropdown-link">Embroidery</a>
-                    </div>
-                    <div class="dropdown-section">
-                        <h4>Design Services</h4>
-                        <a href="#" class="dropdown-link">Custom Design</a>
-                        <a href="#" class="dropdown-link">Logo Creation</a>
-                        <a href="#" class="dropdown-link">Design Consultation</a>
-                        <a href="#" class="dropdown-link">Artwork Review</a>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">About</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Contact</a>
-            </li>
+            <a href="{{ url('/services') }}" class="nav-link">Services</a>
+            <a href="{{ url('/about') }}" class="nav-link">About</a>
+            <a href="{{ url('/contact') }}" class="nav-link">Contact</a>
         </ul>
 
         <div class="nav-actions">

@@ -23,8 +23,15 @@ Route::get('cart', [HomepageController::class, 'cart']);
 Route::get('checkout', [HomepageController::class, 'checkout']);
 Route::get('/products/filter', [HomepageController::class, 'filterByCategory']);
 Route::get('/product/{name}', [HomepageController::class, 'show'])->name('detailproducts');
-
-
+Route::get('/about', function () {
+    return view('web.about');
+});
+Route::get('/contact', function () {
+    return view('web.contact');
+});
+Route::get('/services', function () {
+    return view('web.services');
+});
 
 
 Route::group(['prefix' => 'dashboard'], function () {
