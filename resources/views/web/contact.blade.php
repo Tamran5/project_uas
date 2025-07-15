@@ -18,7 +18,7 @@
                             cepat di Indonesia.</p>
                     </div>
                     <div class="hero-image">
-                        <img src="{{ asset('images/wil.jpg') }}" alt="Contact us" class="contact-image">
+                        <img src="{{ asset('images/aboutFoto.jpg') }}" alt="Contact us" class="contact-image">
                     </div>
                 </div>
             </div>

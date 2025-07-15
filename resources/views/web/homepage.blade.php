@@ -232,10 +232,10 @@
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">
-                            <img src="{{ asset('images/wil.jpg') }}" alt="Sarah Johnson">
+                            <img src="{{ asset('images/images.jpg') }}" alt="Sarah Johnson">
                         </div>
                         <div class="author-info">
-                            <h4 class="author-name">Embut Sanchez</h4>
+                            <h4 class="author-name">Sanchez</h4>
                             <p class="author-title">Small Business Owner</p>
                         </div>
                     </div>
